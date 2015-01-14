@@ -3,6 +3,9 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 CELLO_HEADER="#include <Cello.h>
 #include <Viola.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 int main(int argc, char** argv) {
 "
 CELLO_FOOTER="
@@ -21,6 +24,7 @@ VIOLA_FILE=$(perl -pe 's/namespace( )*([a-zA-Z_][a-zA-Z0-9_]*)( )*\(/namespace\(
 VIOLA_FILE=$(perl -pe 's/\)\n/\);\n/g' <<< "$VIOLA_FILE")
 VIOLA_FILE=$(sed -e 's/function\([ ]*\)\([a-zA-Z][a-zA-Z0-9_]*[ ]*\)(\(.*=\)/function (*\2)(\3/g' <<< "$VIOLA_FILE")
 VIOLA_FILE=$(perl -pe 's/import[ ]*\"(.*)\"/"#include \"".`viola "$1" save`."$1\""/eg' <<< "$VIOLA_FILE")
+VIOLA_FILE=$(perl -pe 's/import/#include/g' <<< "$VIOLA_FILE")
 
 CELLO_FILE_CONTENTS="${CELLO_HEADER}${VIOLA_FILE}${CELLO_FOOTER}" 
 if [ $EVAL -eq 1 ]; then

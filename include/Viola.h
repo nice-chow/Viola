@@ -31,4 +31,11 @@
 		members\
 	} VIOLA__##name; VIOLA__##name name;
 
+#define let __attribute__((cleanup(free_stack))) var
+
+__attribute__((always_inline))
+inline void free_stack(var* ptr) {
+	delete(*ptr);
+}
+
 #endif
