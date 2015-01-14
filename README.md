@@ -21,13 +21,12 @@ Add this directory to your path to access `viola`.
 
 ###example.v
 
-    var myList = Ints(Int(1), Int(2), Int(3))
+    var a = Int(1), b = Int(2), c = Int(3)
+    let myList = Ints(Int(1), Int(2), Int(3)) // Now automatically freed.
 
     foreach (element in myList) {
         print("%$\n", element)
     }
-
-    delete(myList)
 
 ####Compile (and Run)
 
@@ -60,6 +59,18 @@ Check out examples/ for more.
         // Also works for lists of objects, heap memory is allocated here though
         var l = List(Int(2), Int(4))
         delete(l); // so don't forget to deallocate the memory.
+
+* Smart pointers
+    * declaring pointers using "let" instead of "var" allows auto-cleanup once the variable leaves scope:
+
+            // Without auto cleanup
+            var list = List(Int(2), Int(3))
+            delete(list); // Must free manually
+
+            // With auto cleanup
+            let list = List(Int(2), Int(4))
+
+    * Idea taken from (http://snaipe.me/c/c-smart-pointers/)[http://snaipe.me/c/c-smart-pointers/]
 
 * Functions
     * "function" is just a mask for "var", but it is also used to simplify passing functions:
