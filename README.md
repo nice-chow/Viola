@@ -7,7 +7,7 @@ Taking the load off libCello - a work in progress.
 
 I saw https://github.com/orangeduck/libCello after it hit the top of Hackernews. It seemed like there were a number of ways to make this even more beginner friendly. I think there is a lot of potential for this library to be a standalone tool used for teaching beginning programmers and slowly weaning them towards manual memory management via a lite syntax.
 
-Viola depends on libCello to provide the backbone. The more interesting parts of Viola revolve around very simple (completely context-free) string replacements and a somewhat simpler/more-friendly API that sits on top of libCello. Furthermore, Viola is intended more as a "standalone" language for teaching.
+Viola depends on libCello to provide the backbone. The more interesting parts of Viola revolve around very simple (completely context-free) string replacements and a somewhat simpler/more-friendly API that sits on top of libCello. Furthermore, Viola is intended more as a "standalone" language for teaching. Viola also extends libCello by adding support for smart pointers, thanks to (snaipe)[https://github.com/Snaipe]'s work and blog post on smart pointers in C.
 
 I haven't really had time to make documentation, but I wrote a number of examples in examples/ to demonstrate some of the cooler features in Viola. This is obviously a work in progress. Please feel free to make any suggestions or give any guidance!
 
