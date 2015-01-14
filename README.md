@@ -70,7 +70,7 @@ Check out examples/ for more.
             // With auto cleanup
             let list = List(Int(2), Int(4))
 
-    * Idea taken from (http://snaipe.me/c/c-smart-pointers/)[http://snaipe.me/c/c-smart-pointers/]
+    * Idea came from [http://snaipe.me/c/c-smart-pointers/](http://snaipe.me/c/c-smart-pointers/)
 
 * Functions
     * "function" is just a mask for "var", but it is also used to simplify passing functions:
