@@ -72,6 +72,14 @@ Check out examples/ for more.
 
     * Idea came from [http://snaipe.me/c/c-smart-pointers/](http://snaipe.me/c/c-smart-pointers/)
 
+* Symbols
+    * Another type that treats strings as character arrays. These arrays are stored with libCello arrays so you can iterate over them with foreach:
+
+            var s = Symbol("this is my char array")
+            foreach(c in s) {
+                print("%s\n", c)
+            }
+
 * Functions
     * "function" is just a mask for "var", but it is also used to simplify passing functions:
 

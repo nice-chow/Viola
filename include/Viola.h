@@ -4,9 +4,18 @@
 #define GET_MACRO(_1,_2,NAME,...) NAME
 
 #define String(s) $(String, s)
+#define Char(c) $(Char, c)
+
+var Symbol(char* str) {
+    var charArray = new(Array, Char);
+    for (int i = 0; str[i] != 0; i++) {
+        push(charArray, Char(str[i]));
+    }
+    return charArray;
+}
+
 #define Int(i) $(Int, i)
 #define Real(r) $(Real, r)
-#define Char(c) $(Char, c)
 #define Dictionary() new(Dictionary)
 #define Map() new(Map)
 #define Reference(r) $(Reference, r)
